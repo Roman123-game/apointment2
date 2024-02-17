@@ -1,9 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Button,Image } from 'react-native';
+import { StyleSheet, Text, View,Button,Image,FlatList } from 'react-native';
+import Data from './data/Data.js'
 
 export default function App() {
   return (
     <View style={styles.container}>
+    <FlatList
+    data = {Data}
+    renderItem={(data) => <Text style={styles.text} >{data.title}</Text>}
+    />
       <Text>  new App appointment</Text>
       <Image style={styles.mainImage} source={require('./assets/Frame2.png')} />
       <Button title="tap me"/>
@@ -36,5 +41,8 @@ const styles = StyleSheet.create({
     borderRadius: '15px',
     backgroundColor: '#e5cbba',
 
+  },
+  text:{
+color: 'black'
   }
 });
